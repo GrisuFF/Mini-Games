@@ -1,0 +1,129 @@
+﻿<Window x:Class="Mini_Games.TicTacToe_Start"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mini_Games"
+        mc:Ignorable="d"
+        Title="TicTacToe_Start" Height="250" Width="450" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0.6"/>
+                <GradientStop Color="CornflowerBlue"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Grid.Row="0">
+            <Label Content="Willkommen im Spiel" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+            <Label Content="Tic Tac Toe" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold" VerticalAlignment="Center"/>
+            <Label Content="Geben Sie den Namen für Spieler1 und Spieler2 ein:" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Bottom" Margin="10,0,0,0"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Label Content="Wie lautet der Name von Spieler1:" HorizontalAlignment="Left" FontSize="15" Margin="10,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <TextBox x:Name="tbNamePlayer1" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="tbNamePlayer1_TextChanged"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Label Content="Wie lautet der Name von Spieler2:" HorizontalAlignment="Left" FontSize="15" Margin="10,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <TextBox x:Name="tbNamePlayer2" Width="180" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="tbNamePlayer1_TextChanged"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <LinearGradientBrush x:Key="BlueGrayGardientBrush" StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="CornflowerBlue" Offset="0" />
+                            <GradientStop Color="LightGray" Offset="1"/>
+                        </LinearGradientBrush>
+
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{StaticResource BlueGrayGardientBrush}"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Height" Value="40"/>
+                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
+                                            <Rectangle x:Name="outerRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="{TemplateBinding Background}" RadiusX="5" RadiusY="5" StrokeThickness="10" Fill="{TemplateBinding Background}" />
+                                            <DockPanel Name="ContentPresenterDockPanel">
+                                                <ContentPresenter x:Name="ContenPresenter" Margin="10" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" TextBlock.Foreground="Black" />
+                                            </DockPanel>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF4C4CFA"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="btnStartTicTacToe" Click="btnStartTicTacToe_Click" Content="Spiel starten" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <LinearGradientBrush x:Key="BlueGrayGardientBrush" StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="CornflowerBlue" Offset="0" />
+                            <GradientStop Color="LightGray" Offset="1"/>
+                        </LinearGradientBrush>
+
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{StaticResource BlueGrayGardientBrush}"/>
+                            <Setter Property="Margin" Value="10"/>
+                            <Setter Property="Height" Value="40"/>
+                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
+                                            <Rectangle x:Name="outerRectangle" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="{TemplateBinding Background}" RadiusX="5" RadiusY="5" StrokeThickness="10" Fill="{TemplateBinding Background}" />
+                                            <DockPanel Name="ContentPresenterDockPanel">
+                                                <ContentPresenter x:Name="ContenPresenter" Margin="10" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" TextBlock.Foreground="Black" />
+                                            </DockPanel>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF4C4CFA"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="btnCancelTicTacToe" Click="btnCancelTicTacToe_Click" Content="Abbrechen" FontWeight="Bold" HorizontalContentAlignment="Center" Command=""/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
